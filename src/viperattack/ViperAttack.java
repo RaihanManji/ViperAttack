@@ -6,6 +6,8 @@
 
 package viperattack;
 
+import environment.ApplicationStarter;
+
 /**
  *
  * @author User
@@ -16,7 +18,11 @@ public class ViperAttack {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Viper Attack - hsssssssss");
+        start();
+    }
+
+    private static void start() {
+        ApplicationStarter.run("Viper Attack", new SnakeEnvironment());
     }
     
 }
