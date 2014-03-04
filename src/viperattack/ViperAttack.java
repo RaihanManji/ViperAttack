@@ -7,6 +7,7 @@
 package viperattack;
 
 import environment.ApplicationStarter;
+import java.awt.Dimension;
 
 /**
  *
@@ -22,7 +23,7 @@ public class ViperAttack {
     }
 
     private static void start() {
-        ApplicationStarter.run("Viper Attack", new SnakeEnvironment());
+        ApplicationStarter.run(new String[0], "Viper Attack", new Dimension(1600, 900), new SnakeEnvironment());
     }
     
 }

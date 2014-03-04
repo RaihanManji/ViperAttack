@@ -42,7 +42,6 @@ class SnakeEnvironment extends Environment {
 
     @Override
     public void initializeEnvironment() {
-
         this.setBackground(ResourceTools.loadImageFromResource("resources/blue2.jpg"));
         this.poutine = ResourceTools.loadImageFromResource("resources/poutine.png");
 
@@ -181,12 +180,10 @@ class SnakeEnvironment extends Environment {
         this.snake.getBody().add(new Point(30, 40));
         this.snake.getBody().add(new Point(40, 30));
         this.snake.getBody().add(new Point(30, 30));
-
     }
 
     private Point getRandomGridLocation() {
         return new Point((int) (Math.random() * this.grid.getColumns()), (int) (Math.random() * this.grid.getRows()));
-
     }
 
     @Override
@@ -201,9 +198,9 @@ class SnakeEnvironment extends Environment {
                 } else {
                     moveCounter--;
                 }
-
             }
         }
+
         if (snake.getHead().x < 0 || snake.getHead().y < 0 || snake.getHead().x > grid.getColumns() - 1 || snake.getHead().y > grid.getRows() - 1) {
             this.gameState = GameState.ENDED;
         }
@@ -232,9 +229,9 @@ class SnakeEnvironment extends Environment {
                 this.poutines.get(i).y = getRandomGridLocation().y;
                 this.snake.grow();
                 AudioPlayer.play("/resources/dj.wav");
-
             }
         }
+
         for (int i = 0; i < this.bottles.size(); i++) {
             if (snake.getHead().equals(this.bottles.get(i))) {
                 System.out.println("Bottle Chomp");
@@ -247,6 +244,7 @@ class SnakeEnvironment extends Environment {
 
             }
         }
+        
         for (int i = 0; i < this.walls.size(); i++) {
             if (snake.getHead().equals(this.walls.get(i))) {
                 System.out.println("Bottle Chomp");
@@ -332,7 +330,6 @@ class SnakeEnvironment extends Environment {
                     graphics.fillOval(cellLocation.x, cellLocation.y, grid.getCellWidth(), grid.getCellHeight());
                 }
             }
-
         }
 
         //graphics.drawImage(poutine, 10, 20, this.grid.getCellWidth(), this.grid.getCellHeight(), this);
@@ -350,20 +347,18 @@ class SnakeEnvironment extends Environment {
             graphics.setColor(Color.BLUE);
             graphics.setFont(new Font("Calibri", Font.BOLD, 100));
             graphics.drawString("Game Over!!!", 550, 300);
-
         }
 
         if (gameState == GameState.PAUSED) {
             graphics.setColor(Color.blue);
             graphics.setFont(new Font("Calibri", Font.BOLD, 100));
             graphics.drawString("Paused", 650, 300);
-
         }
+        
         if (gameState == GameState.PAUSED) {
             graphics.setColor(Color.blue);
             graphics.setFont(new Font("Calibri", Font.BOLD, 100));
             graphics.drawString("Click spacebar to continue", 320, 500);
-
         }
     }
 

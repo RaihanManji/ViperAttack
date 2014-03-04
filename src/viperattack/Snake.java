@@ -15,7 +15,6 @@ public class Snake {
     private ArrayList<Point> body;
     Direction direction = Direction.RIGHT;
     
-    
     {
         body = new ArrayList<>();
     }
@@ -24,7 +23,6 @@ public class Snake {
         // create a new location for the head, usinfg the direction 
        int x = 0;
        int y = 0;
-        
        
        switch (direction){
            case UP:
@@ -46,15 +44,11 @@ public class Snake {
                x = -1;
                y = 0;
                break; 
-                               
-                               
        }
        
-        
        body.add(0, new Point(getHead().x + x, getHead().y + y));
        //delete body
        body.remove(body.size() - 1);
-       
     }
     
     public void grow()  {
@@ -73,12 +67,9 @@ public class Snake {
         for (int i = 1; i < body.size(); i++) {
             if (body.get(i).equals(getHead() )) {
                 return true;
-                
             }
         }
-        
         return false;
-        
     }
     
     //private ArrayList<Point> body;
